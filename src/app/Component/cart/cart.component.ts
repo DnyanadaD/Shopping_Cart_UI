@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import Cart from 'src/app/Models/Cart.model';
+import Cart from 'src/app/Models/cart.model';
 import { ShareService } from 'src/app/Services/share.service';
 import {MatIconModule} from '@angular/material/icon';
 import { NavbarServiceService } from 'src/app/Services/navbar-service.service';
@@ -9,6 +9,7 @@ import { FooterService } from 'src/app/Services/footer.service';
 import { NgIf } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { Product } from 'src/app/Models/Product.model';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -16,6 +17,7 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 export class CartComponent implements OnInit {
   public cart:Cart[];
+  
   constructor(private fs: FooterService, private nav :NavbarServiceService,private shared:ShareService ,public http :HttpClient,private router:Router) { }
 
   ngOnInit(): void {

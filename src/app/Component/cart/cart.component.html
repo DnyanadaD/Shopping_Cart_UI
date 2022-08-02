@@ -1,32 +1,31 @@
 <br>
 <br><br>
-<div *ngif="isActive"> Active=true</div>
 <h1 class="fa fa-underline" aria-hidden="true"> Cart Table</h1>
 <div class="container table-responsive py-5">
 
     <table class="table table-striped" aria-labelledby="tablelabel">
         <thead class="thead-dark">
-            <th scope="col">CartId</th>
-            <th scope="col">Item</th>
-            <th scope="col">ItemPrice</th>
-            <th scope="col">ProductId</th>
-            <th></th>
+            <th scope="col">Cart Id</th>
+            <th scope="col">Product Id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Price</th>
+
         </thead>
         <tbody>
+
             <tr *ngFor="let ct of cart">
                 <td>{{ct.cartId}}</td>
+                <td>{{ct.productId}}</td>
                 <td>{{ct.productName}}</td>
                 <td>{{ct.price}}</td>
-                <td>{{ct.productId}}</td>
-                <td><button type="button" class="btn btn-light" (click)="DeleteCart(ct.CartId)"></button>
-                </td>
+                <button type="button" class="btn btn-light" (click)="DeleteCart(ct.cartId)">
+                <mat-icon>delete_sweep</mat-icon>  
+                </button>
             </tr>
-
+            <!--
+<button (click)="addOrder()">Confirm Order</button>
+-->
         </tbody>
     </table>
 
 </div>
-
-<!--
-
--->

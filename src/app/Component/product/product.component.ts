@@ -3,6 +3,7 @@ import { Product } from 'src/app/Models/Product.model';
 import { ShareService } from 'src/app/Services/share.service';
 import { NavbarServiceService } from 'src/app/Services/navbar-service.service';
 import { FooterService } from 'src/app/Services/footer.service';
+import Cart from 'src/app/Models/cart.model';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
