@@ -32,7 +32,7 @@ GetAllCart():Observable<cart[]>
 return this.http.get<cart[]>(this.APIUrl+'/api/Cart/GetAllCart')
 }
 DeleteFromCart(id:number)
-{ return this.http.delete<cart[]>(this.APIUrl+'/api/Cart/DeleteCart?CartId'+id)
+{ return this.http.delete<cart[]>(this.APIUrl+'/api/Cart/DeleteCart?CartId='+id)
 }
 userlogin(val:any){
   console.log(val);

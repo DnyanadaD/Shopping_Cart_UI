@@ -1,6 +1,5 @@
-<br>
-<br><br>
-<h1 class="fa fa-underline" aria-hidden="true"> Cart Table</h1>
+<br><br><br>
+<h1 class="fa fa-underline" aria-hidden="true"><i class="fa-brands fa-github"></i> Cart Table</h1>
 <div class="container table-responsive py-5">
 
     <table class="table table-striped" aria-labelledby="tablelabel">
@@ -8,23 +7,26 @@
             <th scope="col">Cart Id</th>
             <th scope="col">Product Id</th>
             <th scope="col">Product Name</th>
+            <th scope="col">Product Quantity</th>
             <th scope="col">Product Price</th>
-
+            <th scope="col"> Total Price</th>
         </thead>
         <tbody>
-
             <tr *ngFor="let ct of cart">
                 <td>{{ct.cartId}}</td>
                 <td>{{ct.productId}}</td>
                 <td>{{ct.productName}}</td>
+                <td>
+                    <mat-icon (click)="decrementQuantity(ct.cartId)">remove_circle</mat-icon>
+                    <span>  {{ ct.quantity }}  </span>
+                    <mat-icon (click)="incrementQuantity(ct.cartId)">add_circle</mat-icon>
+                </td>
                 <td>{{ct.price}}</td>
-                <button type="button" class="btn btn-light" (click)="DeleteCart(ct.cartId)">
-                <mat-icon>delete_sweep</mat-icon>  
-                </button>
+                <td>{{ct.price*ct.quantity}}</td>
+                <button type="button" class="btn btn-light" (click)="DeleteCart(ct.cartId)"><mat-icon>delete_sweep</mat-icon></button>
+
             </tr>
-            <!--
-<button (click)="addOrder()">Confirm Order</button>
--->
+            <!--<button (click)="addOrder()">Confirm Order</button>-->
         </tbody>
     </table>
 

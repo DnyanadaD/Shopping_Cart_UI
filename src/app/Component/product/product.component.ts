@@ -16,6 +16,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.refreshProductList();
     this.nav.show();
+    //this.nav.hide();
     this.nav.doSomethingElseUseful();
     this.fs.show();
     this.fs.doSomethingElseUseful(); 

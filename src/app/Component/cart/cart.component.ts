@@ -28,7 +28,7 @@ export class CartComponent implements OnInit {
     this.refreshCartList();
   }
   isActive = true;
-  
+  public quantity:number=1;
   refreshCartList(){
   this.shared.GetAllCart().subscribe(data=>{
     this.cart=data;
@@ -44,6 +44,37 @@ export class CartComponent implements OnInit {
       location.reload();
     }
 }
+   incrementQuantity(cartId:number){
+    this.cart = this.cart.map((cart:Cart) => {
+      if (cart.cartId === cartId) {
+        return {
+          ...cart,
+          quantity: cart.quantity + 1,
+        };
+      }
+      return cart;
+    });
+  }
+
+  decrementQuantity(cartId:number){
+    this.cart = this.cart.map((cart:Cart) => {
+      if (cart.cartId === cartId) {
+        return {
+          ...cart,
+         quantity: cart.quantity > 1 ? cart.quantity - 1 : 1
+        };
+      }
+      return cart;
+    });  
+  }
+  /*
+  countPrice(){
+     this.Price = 0;
+      for(let p of this.packagesArray){
+        this.Price += p.price*p.quantity
+      }
+  }
+*/
 /*addOrder(){
   this.shared.addOrderDetails(this.cart).subscribe(res=>{
 

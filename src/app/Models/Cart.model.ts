@@ -1,6 +1,6 @@
 export default interface Cart{
    
-    cartId:number;
+    cartId:number ;
     //userId:number;
     productId:number;
     productName:string;
