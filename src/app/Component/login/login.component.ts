@@ -25,25 +25,26 @@ export class LoginComponent implements OnInit {
       }
     get f() { return this.LoginForm.controls; }
   constructor(private nav:NavbarServiceService, private Service:ShareService, private fb:FormBuilder, private Http:HttpClient, private router:Router) { }
-
-  ngOnInit(): void {
-    this.nav.show();
   
-  }
-    onSubmit() {
-    this.submitted = true;
-    if (this.LoginForm.invalid) {return;}
+    ngOnInit(): void {
+    this.nav.show();
+    if(localStorage.getItem('token')!=null && this.LoginForm.value.EmailId=="admin@gmail.com" && this.LoginForm.value.Password=="admin")
+    this.router.navigate(['login/admin']);
+    else
+    this.router.navigate(['login/user']);
+    }
+
+  onSubmit() {
+    
     this.Service.userlogin(this.LoginForm.value).subscribe(
       (res:any) =>{
         localStorage.setItem('token',res.token);
         console.log(res.token);
-        alert("Login Successful");
-        this.LoginForm.reset();
-        //if(this.LoginForm.value.EmailId=='admin@admin.com')
-        //this.router.navigate(['login/admin/dashboard']);
-        //else
-        //this.router.navigate(['login/user/dashboard']);
-        
+        if(this.LoginForm.value.EmailId=='admin@gmail.com')
+        this.router.navigate(['login/admin']);
+        else
+        this.router.navigate(['login/user']);
+      
       },
       err =>{
         if(err.status==400)

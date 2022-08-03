@@ -13,15 +13,22 @@ import { FooterService } from 'src/app/Services/footer.service';
 export class SignUpComponent implements OnInit {
 
   SignUpform = new FormGroup({
+    Role: new FormControl('', Validators.required),
     FirstName : new FormControl('', Validators.required),
     LastName : new FormControl,
     EmailId : new FormControl('',[Validators.required , Validators.email]),
-    //address : new FormControl('',Validators.required),
     MobileNumber : new FormControl('' , [Validators.required , Validators.minLength(10) , Validators.maxLength(10)]),
+    AddressInfo : new FormControl('',Validators.required),
+    City : new FormControl('',Validators.required),
+    UserState : new FormControl('',Validators.required),
+    Pincode: new FormControl('' , [Validators.required , Validators.minLength(6) , Validators.maxLength(6)]),
     Password : new FormControl('',Validators.required)
     
   });
   submitted=false;
+  get Role() {
+    return this.SignUpform.get('Role');
+  }
   get FirstName() {
     return this.SignUpform.get('FirstName');
   }
@@ -34,6 +41,18 @@ export class SignUpComponent implements OnInit {
   get MobileNumber() {
     return this.SignUpform.get('MobileNumber');
   }
+  get AddressInfo(){
+    return this.SignUpform.get('AddressInfo'); 
+  }
+  get City(){
+    return this.SignUpform.get('City'); 
+  }
+  get UserState(){
+    return this.SignUpform.get('UserState'); 
+  }
+  get Pincode(){
+    return this.SignUpform.get('Pincode'); 
+  }
   get Password() {
     return this.SignUpform.get('Password');
   }
@@ -42,7 +61,7 @@ export class SignUpComponent implements OnInit {
   constructor(private shared:ShareService, private nav:NavbarServiceService, private fs:FooterService) { }
 
   ngOnInit(): void {
-    
+    this.fs.hide();
   }
 
   onSubmit() {

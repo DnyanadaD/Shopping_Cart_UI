@@ -16,6 +16,10 @@ import {MatIconModule} from '@angular/material/icon';
 import { NavbarComponent } from './Component/navbar/navbar.component';
 import { FooterComponent } from './Component/footer/footer.component';
 import { CommonModule } from '@angular/common';
+import { AdminLandingPageComponent } from './Component/admin-landing-page/admin-landing-page.component';
+import { UserLandingPageComponent } from './Component/user-landing-page/user-landing-page.component';
+import { ErrorComponent } from './Component/error/error.component';
+import { OrderComponent } from './Component/order/order.component';
 //import { CartComponent } from './Component/cart/cart.component';
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { CommonModule } from '@angular/common';
     ProductComponent,
     NavbarComponent,
     FooterComponent,
-    CartComponent
+    CartComponent,
+    AdminLandingPageComponent,
+    UserLandingPageComponent,
+    ErrorComponent,
+    OrderComponent
     
   ],
   imports: [
@@ -40,8 +48,11 @@ import { CommonModule } from '@angular/common';
       {path: 'sign-up', component: SignUpComponent},
       {path: 'products', component: ProductComponent},
       {path: 'cart', component:CartComponent},
+      {path: 'login/user', component:UserLandingPageComponent},
+      {path: 'login/admin', component:AdminLandingPageComponent},
+      {path: 'order', component: OrderComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
-      //{path: '**', component:ErrorComponent,pathMatch:'full'}
+      {path: '**', component:ErrorComponent,pathMatch:'full'}
     ]),
     HttpClientModule,
     MatIconModule,

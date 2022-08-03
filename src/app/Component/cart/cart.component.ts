@@ -28,7 +28,7 @@ export class CartComponent implements OnInit {
     this.refreshCartList();
   }
   isActive = true;
-  public quantity:number=1;
+  //public quantity:number=1;
   refreshCartList(){
   this.shared.GetAllCart().subscribe(data=>{
     this.cart=data;
