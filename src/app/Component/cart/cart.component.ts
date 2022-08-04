@@ -16,8 +16,8 @@ import { Product } from 'src/app/Models/Product.model';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  public cart:Cart[];
-  
+  public Cart:Cart[];
+  readonly APIUrl ="https://localhost:44339"
   constructor(private fs: FooterService, private nav :NavbarServiceService,private shared:ShareService ,public http :HttpClient,private router:Router) { }
 
   ngOnInit(): void {
@@ -31,8 +31,8 @@ export class CartComponent implements OnInit {
   //public quantity:number=1;
   refreshCartList(){
   this.shared.GetAllCart().subscribe(data=>{
-    this.cart=data;
-    console.log(this.cart)
+    this.Cart=data;
+    console.log(this.Cart)
   });
 
   }
@@ -44,43 +44,52 @@ export class CartComponent implements OnInit {
       location.reload();
     }
 }
+// UpdateProduct(productId:number){
+//   return this.http.put(this.APIUrl+'/api/Prouduct/UpdateProduct',productId)
+//}
    incrementQuantity(cartId:number){
-    this.cart = this.cart.map((cart:Cart) => {
-      if (cart.cartId === cartId) {
+    this.Cart = this.Cart.map((Cart:Cart) => {
+      if (Cart.cartId === cartId) {
+        //Cart.quantity=Cart.quantity+1;
+        //console.log(Cart);
+        //this.UpdateProduct(Cart.productId);
         return {
-          ...cart,
-          quantity: cart.quantity + 1,
+          ...Cart,
+          quantity: Cart.quantity + 1,
+          
         };
+
       }
-      return cart;
+      return Cart;
     });
   }
 
   decrementQuantity(cartId:number){
-    this.cart = this.cart.map((cart:Cart) => {
-      if (cart.cartId === cartId) {
+    this.Cart = this.Cart.map((Cart:Cart) => {
+      if (Cart.cartId === cartId) {
         return {
-          ...cart,
-         quantity: cart.quantity > 1 ? cart.quantity - 1 : 1
+          ...Cart,
+         quantity: Cart.quantity > 1 ? Cart.quantity - 1 : 1
         };
       }
-      return cart;
+      return Cart;
     });  
   }
-  /*
-  countPrice(){
-     this.Price = 0;
-      for(let p of this.packagesArray){
-        this.Price += p.price*p.quantity
-      }
+  public grandTotal():number{
+    let total : number = 0;
+    for(let cart of this.Cart){
+      total+= cart.quantity* cart.price;
+    }
+    return total;
   }
-*/
-/*addOrder(){
-  this.shared.addOrderDetails(this.cart).subscribe(res=>{
+  
+addOrder(Cart:Cart){
+  console.log(Cart);
+  this.shared.addOrderDetails(this.Cart).subscribe(res=>{
 
   });
   alert('Order successful!');
   this.router.navigate(['order']);
-}*/
+}
 
 }

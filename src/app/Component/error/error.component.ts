@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavbarServiceService } from 'src/app/Services/navbar-service.service';
+import { FooterService } from 'src/app/Services/footer.service';
 
 @Component({
   selector: 'app-error',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private nav:NavbarServiceService, private fs:FooterService) { }
 
   ngOnInit(): void {
+    this.nav.hide();
+    this.fs.hide();
   }
 
 }

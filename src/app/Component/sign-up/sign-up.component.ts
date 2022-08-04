@@ -58,7 +58,7 @@ export class SignUpComponent implements OnInit {
   }
 
 
-  constructor(private shared:ShareService, private nav:NavbarServiceService, private fs:FooterService) { }
+  constructor(private shared:ShareService, private nav:NavbarServiceService, private fs:FooterService,private router :Router) { }
 
   ngOnInit(): void {
     this.fs.hide();
@@ -74,7 +74,7 @@ export class SignUpComponent implements OnInit {
 });
 alert("Sign Up Successful");
   this.SignUpform.reset();
-  //this.router.navigate(['login']);
+  this.router.navigate(['login']);
 }
   
 

@@ -1,12 +1,6 @@
-* {
-    margin-top: 2 px;
-}
-
 .footer {
-    background: black;
-    color: #d3d3d3;
-    height: 150px;
-    position: relative;
+    background-color: black;
+    margin-top: 10%;
 }
 
 .footer .footer-content {
@@ -48,13 +42,13 @@
     transition: all .3s;
 }
 
-.footer .footer-content .Social-media .socials a:hover {
+.footer-content .Social-media .socials a:hover {
     border: 1px solid #33ff33;
     color: #33ff33;
     transition: all .3s;
 }
 
-.footer .footer-content .links ul a {
+.footer-content .links ul a {
     display: block;
     margin-bottom: 10px;
     font-size: 1.2em;

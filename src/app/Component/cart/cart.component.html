@@ -1,5 +1,5 @@
 <br><br><br>
-<h1 class="fa fa-underline" aria-hidden="true"><i class="fa-brands fa-github"></i> Cart Table</h1>
+<h1 class="fa fa-underline" aria-hidden="true"> Cart Table</h1>
 <div class="container table-responsive py-5">
 
     <table class="table table-striped" aria-labelledby="tablelabel">
@@ -7,27 +7,43 @@
             <th scope="col">Cart Id</th>
             <th scope="col">Product Id</th>
             <th scope="col">Product Name</th>
+            <th scope="col">Product Image</th>
             <th scope="col">Product Quantity</th>
             <th scope="col">Product Price</th>
             <th scope="col"> Total Price</th>
         </thead>
         <tbody>
-            <tr *ngFor="let ct of cart">
+            <tr *ngFor="let ct of Cart">
                 <td>{{ct.cartId}}</td>
                 <td>{{ct.productId}}</td>
                 <td>{{ct.productName}}</td>
+                <td> <img [src]="ct.productImage" width="50" height="50"> </td>
                 <td>
                     <mat-icon (click)="decrementQuantity(ct.cartId)">remove_circle</mat-icon>
                     <span>  {{ ct.quantity }}  </span>
                     <mat-icon (click)="incrementQuantity(ct.cartId)">add_circle</mat-icon>
                 </td>
-                <td>{{ct.price}}</td>
-                <td>{{ct.price*ct.quantity}}</td>
+                <td>{{ct.price| currency :'INR'}}</td>
+                <td>{{ct.price*ct.quantity| currency :'INR'}}</td>
                 <button type="button" class="btn btn-light" (click)="DeleteCart(ct.cartId)"><mat-icon>delete_sweep</mat-icon></button>
 
             </tr>
-            <!--<button (click)="addOrder()">Confirm Order</button>-->
+            <tr>
+                <td colspan="5"></td>
+                <td> Total Amount : </td>
+                <td>{{grandTotal() | currency :'INR'}}</td>
+            </tr>
+            <button class="btn-success" routerLink="/order">Confirm Order</button>
         </tbody>
     </table>
 
 </div>
+<!--<i class="fa-brands fa-github"></i>-->
+<!--   // logOff user
+   logOutUser():void{
+    if(localStorage.getItem("username")!=null){
+      localStorage.removeItem("username");
+      this.router.navigate(['/login']);
+    }
+}
+-->

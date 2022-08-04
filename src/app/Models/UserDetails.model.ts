@@ -11,5 +11,6 @@ export class UserDetails{
         UserState:string='';
         Pincode:string='';
         Password:string='';
+        IsLogin:boolean=false;
     
 }

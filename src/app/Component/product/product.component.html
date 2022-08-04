@@ -1,6 +1,5 @@
-<div class="pro">
-    <h1>
-        <b>Products</b></h1>
+<div class=" mb-3">
+    <h1><b>Products</b></h1>
     <div class="row mb-3">
         <ng-container *ngFor="let products of products async let i = index">
             <div class="col">
@@ -12,6 +11,7 @@
                         <p class="card-text">{{products.description}}</p>
 
                         <a (click)="addToCart(products)" class="btn">Add to cart</a>
+
                     </div>
                 </div>
             </div>
