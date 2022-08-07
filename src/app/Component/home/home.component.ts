@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   constructor(private nav :NavbarServiceService ,private fs:FooterService) { }
 
   ngOnInit(): void {
-    this.nav.show();
+    this.nav.hide();
    this.nav.doSomethingElseUseful();
    this.fs.show();
    this.fs.doSomethingElseUseful();

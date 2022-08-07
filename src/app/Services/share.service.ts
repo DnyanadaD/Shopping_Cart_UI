@@ -4,28 +4,41 @@ import { map, Observable } from 'rxjs';
 import { UserDetails } from '../Models/UserDetails.model';
 import { Product } from '../Models/Product.model';
 import cart from '../Models/cart.model';
-//import order from '../Models/order.model';
+import { feedback } from '../Models/feedback.model';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ShareService {
   public userService =  UserDetails;
-  //public order:order[];
-  //public UserDetails =UserDetails[];
   public products :Product[];
   public product:Product;
   public cart:cart[];
-readonly APIUrl ="https://localhost:44339"
+  readonly APIUrl ="https://localhost:44339"
   constructor(private http:HttpClient) { }
-  GetAllUserDetails():Observable<any[]>{
+GetAllUserDetails():Observable<any[]>{
     return this.http.get<any[]>(this.APIUrl+'/api/UserDetails/GetAllUserDetails()')
-    }
-  
-  GetAllProduct():Observable<Product[]>{
+  }
+GetAllProduct():Observable<Product[]>{
   return this.http.get<Product[]>(this.APIUrl+'/api/Prouduct/GetAllProduct()')
 }
+
+AddProduct(val:any){
+  return this.http.post<Product[]>(this.APIUrl+'/api/Prouduct/SaveProduct',val);
+}
+
 UpdateProduct(val:any){
-  return this.http.put(this.APIUrl+'/api/Prouduct/UpdateProduct',val)
+  return this.http.put<Product[]>(this.APIUrl+'/api/Prouduct/UpdateProduct',val);
+}
+DeleteProduct(id:number){
+  return this.http.delete<Product[]>(this.APIUrl+'/api/Prouduct/DeleteProduct?ProductId='+id);
+}
+GetProduct(val:any){
+  return this.http.post(this.APIUrl+'api/Prouduct/GetProduct?ProductId=',val);
+}
+
+UpdateCart(val:any){
+  return this.http.put(this.APIUrl+'/api/Cart/UpdateCart',val)
 }
 addToCart(val:any){
   return this.http.post<cart>(this.APIUrl+'/api/Cart/SaveCart',val);
@@ -49,6 +62,44 @@ addOrderDetails(val:any){
   console.log(val);
   return this.http.post<cart[]>(this.APIUrl+'/api/Order/SaveOrderDetails',val)
 }
+GetAllFeedDetails():Observable<feedback[]>
+{
+ return this.http.get<feedback[]>(this.APIUrl+'/api/Feedback/GetAllFeedDetails()')
+}
+addFeedDetails(val:any){
+  console.log(val);
+  return this.http.post<feedback>(this.APIUrl+'/api/Feedback/SaveFeedDetails',val)
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // GetAllOrderDetails():Observable<order[]>
 // {
 //   return this.http.get<order[]>(this.APIUrl+'/api/Order/GetAllOrderDetails()')
@@ -58,5 +109,5 @@ addOrderDetails(val:any){
     //   console.log(val);
     //   return this.http.get<UserDetails[]>(this.APIUrl+'api/UserDetails/GetUserbyEmail?EmailId=',val)
     //   }
-}
+
 ///api/UserDetails/GetUserbyEmail

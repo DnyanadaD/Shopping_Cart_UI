@@ -1,0 +1,33 @@
+<form>
+    <div class="form-group row" [formGroup]="ProductForm">
+        <label class="col-sm-2 col-form-label"> ID</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="productId" placeholder="Enter Product Id">
+        </div>
+        <label class="col-sm-2 col-form-label"> Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="productName" placeholder="Enter Product Name">
+        </div>
+        <label class="col-sm-2 col-form-label"> Price</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="price" placeholder="Enter Product Price">
+        </div>
+        <label class="col-sm-2 col-form-label"> Image</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="productImage" placeholder="Enter Product Image">
+        </div>
+        <label class="col-sm-2 col-form-label"> Description</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="description" placeholder="Enter Product Description">
+        </div>
+        <label class="col-sm-2 col-form-label"> Category</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="category" placeholder="Enter Product Category">
+        </div>
+
+    </div>
+
+</form>
+
+
+<button (click)="EditProduct()" class="btn btn-primary">Edit Product</button>

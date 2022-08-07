@@ -20,6 +20,12 @@ import { AdminLandingPageComponent } from './Component/admin-landing-page/admin-
 import { UserLandingPageComponent } from './Component/user-landing-page/user-landing-page.component';
 import { ErrorComponent } from './Component/error/error.component';
 import { OrderComponent } from './Component/order/order.component';
+import { FeedbackComponent } from './Component/feedback/feedback.component';
+import { AllfeedbacksComponent } from './Component/allfeedbacks/allfeedbacks.component';
+import { ShowProductComponent } from './Component/admin-landing-page/show-product/show-product.component';
+import { AddProductComponent } from './Component/admin-landing-page/add-product/add-product.component';
+import { EditProductComponent } from './Component/admin-landing-page/edit-product/edit-product.component';
+import { AddEditProductsComponent } from './Component/admin-landing-page/add-edit-products/add-edit-products.component';
 //import { CartComponent } from './Component/cart/cart.component';
 @NgModule({
   declarations: [
@@ -34,7 +40,13 @@ import { OrderComponent } from './Component/order/order.component';
     AdminLandingPageComponent,
     UserLandingPageComponent,
     ErrorComponent,
-    OrderComponent
+    OrderComponent,
+    FeedbackComponent,
+    AllfeedbacksComponent,
+    ShowProductComponent,
+    AddProductComponent,
+    EditProductComponent,
+    AddEditProductsComponent
     
   ],
   imports: [
@@ -51,6 +63,10 @@ import { OrderComponent } from './Component/order/order.component';
       {path: 'login/user', component:UserLandingPageComponent},
       {path: 'login/admin', component:AdminLandingPageComponent},
       {path: 'order', component: OrderComponent},
+      {path:'feedback',component:FeedbackComponent},
+      {path:'allfeedbacks',component:AllfeedbacksComponent},
+      {path:'edit-product',component:EditProductComponent},
+      {path:'show-product',component:ShowProductComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', component:ErrorComponent,pathMatch:'full'}
     ]),
