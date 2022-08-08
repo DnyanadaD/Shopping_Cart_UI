@@ -67,6 +67,7 @@ import { AddEditProductsComponent } from './Component/admin-landing-page/add-edi
       {path:'allfeedbacks',component:AllfeedbacksComponent},
       {path:'edit-product',component:EditProductComponent},
       {path:'show-product',component:ShowProductComponent},
+      {path:'add-edit-product',component:AddEditProductsComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', component:ErrorComponent,pathMatch:'full'}
     ]),

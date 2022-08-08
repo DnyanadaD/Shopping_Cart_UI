@@ -26,3 +26,9 @@ button {
         transform: rotate(360deg);
     }
 }
+
+.space {
+    width: 4px;
+    height: auto;
+    display: inline-block;
+}

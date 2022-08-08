@@ -12,19 +12,20 @@ import { ShareService } from 'src/app/Services/share.service';
 })
 export class AddEditProductsComponent implements OnInit {
   public products:Product[];
-  ProductForm = new FormGroup({
-    productId:new FormControl(''),
-    productName : new FormControl('', Validators.required),
-    price : new FormControl('',Validators.required),
-    productImage : new FormControl('',Validators.required),
-    description:new FormControl('',Validators.required),
-    category:new FormControl('',Validators.required)
+   ProductForm = new FormGroup({
+    productId: new FormControl(''),
+    productName: new FormControl(''),
+    price: new FormControl(''),
+    productImage: new FormControl(''),
+    description: new FormControl(''),
+    category: new FormControl('')
   });
+  
   submitted=false;
   get productId(){
     return this.ProductForm.get('productId');
   }
-  get prouctName() {
+  get productName() {
     return this.ProductForm.get('productName');
   }
   get price() {
@@ -46,25 +47,29 @@ export class AddEditProductsComponent implements OnInit {
     this.nav.show();
     this.fs.show();
   }
-  AddProduct(){
-    this.submitted = true;
-     if (this.ProductForm.invalid) {
-       return;
+  // AddProduct(){
+  //   this.submitted = true;
+  //    if (this.ProductForm.invalid) {
+  //      return;
 
-      }
-   this.shared.Addproduct(this.ProductForm.value).subscribe((result)=>{
+  //     }
+  //  this.shared.Addproduct(this.ProductForm.value).subscribe((result)=>{
    
-    });
-    alert("Product Added Successfully");
-    this.ProductForm.reset();
-    location.reload();
-    this.router.navigate(['/admin']);
+  //   });
+  //   alert("Product Added Successfully");
+  //   this.ProductForm.reset();
+  //   location.reload();
+  //   this.router.navigate(['/admin']);
   
-  }
+  // }
   EditProduct(){
     
     this.shared.UpdateProduct(this.ProductForm.value).subscribe((result)=>{
   
     });
+    alert("Product Edited Successfully");
+     
+    this.ProductForm.reset();
+    this.router.navigate(['login/admin']);
  }
 }

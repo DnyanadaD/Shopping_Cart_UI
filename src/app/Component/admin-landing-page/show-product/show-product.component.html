@@ -1,4 +1,6 @@
 <button style="margin: 50px; padding: 10px" type="button" class="btn btn-primary" routerLink="/edit-product" style="background-color:rgb(0, 90, 0);">Add Product</button>
+<div class="space"></div>
+<button style="margin: 50px; padding: 10px" type="button" class="btn btn-primary" routerLink="/add-edit-product" style="background-color:rgb(0, 90, 0);">Edit Product</button>
 <h1>Product</h1>
 <div *ngIf="!products" class="loader"></div>
 <table data-page-length='5' class="table table-striped" aria-labelledby="tabelLabel">
@@ -21,25 +23,7 @@
             <td>{{products.price}}</td>
             <td><img src="{{products.productImage}}" style="width: 100px;height:100px;" /></td>
             <td>{{products.description}}</td>
-            <td><button (click)="editClick(products.productId)" style="margin-right: 10px;border: none;"><mat-icon>create</mat-icon></button>
-                <div id="edit-product" class="modal" tabindex="-2" role="dialog" [ngStyle]="{'display':displayStyle}">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title"><b>{{ModalTitle}}</b></h4>
-                                <button type="button" class="close" (click)="closePopup()" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <app-edit-add-products></app-edit-add-products>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <button (click)="delete(products.productId)" style="border:none"><mat-icon>delete_sweep</mat-icon></button></td>
+            <td><button (click)="delete(products.productId)" style="border:none"><mat-icon>delete_sweep</mat-icon></button></td>
         </tr>
     </tbody>
 </table>
