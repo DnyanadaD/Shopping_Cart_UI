@@ -52,7 +52,7 @@ export class AddEditProductsComponent implements OnInit {
        return;
 
       }
-   this.shared.AddProduct(this.ProductForm.value).subscribe((result)=>{
+   this.shared.Addproduct(this.ProductForm.value).subscribe((result)=>{
    
     });
     alert("Product Added Successfully");

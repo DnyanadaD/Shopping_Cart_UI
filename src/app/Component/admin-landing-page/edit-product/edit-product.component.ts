@@ -22,13 +22,11 @@ export class EditProductComponent implements OnInit {
     productImage : new FormControl('',Validators.required) 
   });
   submitted=false;
-//  get productId(){
-//   return this.ProductForm.get('productId')
-//  }
+
 get category(){
   return this.ProductForm.get('category');
 }
-  get prouctName() {
+  get productName() {
     return this.ProductForm.get('productName');
   }
   get price() {
@@ -54,10 +52,11 @@ get category(){
        return;
 
       }
-     this.shared.AddProduct(this.ProductForm.value).subscribe((result)=>{
+     this.shared.Addproduct(this.ProductForm.value).subscribe((result)=>{
       alert("Product Added Successfully");
+      console.log(this.ProductForm.value);
     });
-    alert("Error");
+    
     this.ProductForm.reset();
     this.router.navigate(['login/admin']);
   

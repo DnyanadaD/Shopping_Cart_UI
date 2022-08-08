@@ -23,8 +23,9 @@ GetAllProduct():Observable<Product[]>{
   return this.http.get<Product[]>(this.APIUrl+'/api/Prouduct/GetAllProduct()')
 }
 
-AddProduct(val:any){
-  return this.http.post<Product[]>(this.APIUrl+'/api/Prouduct/SaveProduct',val);
+readonly apiurl="https://localhost:44339/api/Prouduct/SaveProduct"
+Addproduct(val:any){
+  return this.http.post(this.apiurl,val);
 }
 
 UpdateProduct(val:any){
