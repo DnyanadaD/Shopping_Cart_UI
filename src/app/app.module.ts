@@ -26,6 +26,8 @@ import { ShowProductComponent } from './Component/admin-landing-page/show-produc
 import { AddProductComponent } from './Component/admin-landing-page/add-product/add-product.component';
 import { EditProductComponent } from './Component/admin-landing-page/edit-product/edit-product.component';
 import { AddEditProductsComponent } from './Component/admin-landing-page/add-edit-products/add-edit-products.component';
+import { PaymentComponent } from './Component/payment/payment.component';
+import { OrderSuccessfulComponent } from './Component/order-successful/order-successful.component';
 //import { CartComponent } from './Component/cart/cart.component';
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { AddEditProductsComponent } from './Component/admin-landing-page/add-edi
     ShowProductComponent,
     AddProductComponent,
     EditProductComponent,
-    AddEditProductsComponent
+    AddEditProductsComponent,
+    PaymentComponent,
+    OrderSuccessfulComponent
     
   ],
   imports: [
@@ -56,6 +60,8 @@ import { AddEditProductsComponent } from './Component/admin-landing-page/add-edi
     [FormsModule,ReactiveFormsModule],
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent},
+      {path:'payment',component:PaymentComponent},
+      {path:'order-successful',component:OrderSuccessfulComponent},
       {path: 'login', component: LoginComponent},
       {path: 'sign-up', component: SignUpComponent},
       {path: 'products', component: ProductComponent},
