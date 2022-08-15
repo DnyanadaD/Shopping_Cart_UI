@@ -1,7 +1,8 @@
+<br>
+<h2>Welcome Admin !!!</h2>
 <button style="margin: 50px; padding: 10px" type="button" class="btn btn-primary" routerLink="/edit-product" style="background-color:rgb(0, 90, 0);">Add Product</button>
 <div class="space"></div>
 <button style="margin: 50px; padding: 10px" type="button" class="btn btn-primary" routerLink="/add-edit-product" style="background-color:rgb(0, 90, 0);">Edit Product</button>
-<h1>Product</h1>
 <div *ngIf="!products" class="loader"></div>
 <table data-page-length='5' class="table table-striped" aria-labelledby="tabelLabel">
     <thead>
@@ -27,3 +28,4 @@
         </tr>
     </tbody>
 </table>
+<button class="btn btn-danger" (click)="onLogout()">Log Out</button>

@@ -28,7 +28,8 @@ import { EditProductComponent } from './Component/admin-landing-page/edit-produc
 import { AddEditProductsComponent } from './Component/admin-landing-page/add-edit-products/add-edit-products.component';
 import { PaymentComponent } from './Component/payment/payment.component';
 import { OrderSuccessfulComponent } from './Component/order-successful/order-successful.component';
-//import { CartComponent } from './Component/cart/cart.component';
+import { AuthGuard } from './Services/auth.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,20 +61,20 @@ import { OrderSuccessfulComponent } from './Component/order-successful/order-suc
     [FormsModule,ReactiveFormsModule],
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent},
-      {path:'payment',component:PaymentComponent},
-      {path:'order-successful',component:OrderSuccessfulComponent},
+      {path:'payment',component:PaymentComponent,canActivate: [AuthGuard]},
+      {path:'order-successful',component:OrderSuccessfulComponent,canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent},
       {path: 'sign-up', component: SignUpComponent},
       {path: 'products', component: ProductComponent},
-      {path: 'cart', component:CartComponent},
-      {path: 'login/user', component:UserLandingPageComponent},
-      {path: 'login/admin', component:AdminLandingPageComponent},
-      {path: 'order', component: OrderComponent},
+      {path: 'cart', component:CartComponent,canActivate: [AuthGuard]},
+      {path: 'login/user', component:UserLandingPageComponent,canActivate: [AuthGuard]},
+      {path: 'login/admin', component:AdminLandingPageComponent,canActivate: [AuthGuard]},
+      {path: 'order', component: OrderComponent,canActivate: [AuthGuard]},
       {path:'feedback',component:FeedbackComponent},
       {path:'allfeedbacks',component:AllfeedbacksComponent},
-      {path:'edit-product',component:EditProductComponent},
-      {path:'show-product',component:ShowProductComponent},
-      {path:'add-edit-product',component:AddEditProductsComponent},
+      {path:'edit-product',component:EditProductComponent,canActivate: [AuthGuard]},
+      {path:'show-product',component:ShowProductComponent,canActivate: [AuthGuard]},
+      {path:'add-edit-product',component:AddEditProductsComponent,canActivate: [AuthGuard]},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', component:ErrorComponent,pathMatch:'full'}
     ]),
@@ -81,7 +82,7 @@ import { OrderSuccessfulComponent } from './Component/order-successful/order-suc
     MatIconModule,
     BrowserAnimationsModule
   ],
-  providers: [ShareService],
+  providers: [ShareService ,AuthGuard],//providers: [AuthGuard]
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

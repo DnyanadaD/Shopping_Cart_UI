@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountService } from 'src/app/Services/account.service';
 import { NavbarServiceService } from 'src/app/Services/navbar-service.service';
 import { FooterService } from 'src/app/Services/footer.service';
-//import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

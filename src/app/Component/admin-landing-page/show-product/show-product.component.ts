@@ -6,6 +6,7 @@ import { ShareService } from 'src/app/Services/share.service';
 import { NavbarServiceService } from 'src/app/Services/navbar-service.service';
 import { FormControl, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-show-product',
   templateUrl: './show-product.component.html',
@@ -47,7 +48,7 @@ export class ShowProductComponent implements OnInit {
   
   // router: any;
   // modalInput: number;
-  constructor(private service:ShareService,private http:HttpClient, public nav:NavbarServiceService ) {}
+  constructor(private router:Router, private service:ShareService,private http:HttpClient, public nav:NavbarServiceService ) {}
   
   // ActivateAddEditProd:boolean=false;
   // Product:any;
@@ -70,6 +71,8 @@ refreshList(){
         this.products=data;
         console.log(this.products)
       });
+
+      
 //   openPopup1() {
 //     this.displayStyle = "block";
 //     this.ModalTitle="Add Product";
@@ -101,4 +104,8 @@ refreshList(){
   
 //     });
  }
+ onLogout() {
+  localStorage.clear();
+  this.router.navigate(['/home']);
+}
 }

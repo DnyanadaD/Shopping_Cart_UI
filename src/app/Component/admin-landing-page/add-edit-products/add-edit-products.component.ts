@@ -47,21 +47,7 @@ export class AddEditProductsComponent implements OnInit {
     this.nav.show();
     this.fs.show();
   }
-  // AddProduct(){
-  //   this.submitted = true;
-  //    if (this.ProductForm.invalid) {
-  //      return;
 
-  //     }
-  //  this.shared.Addproduct(this.ProductForm.value).subscribe((result)=>{
-   
-  //   });
-  //   alert("Product Added Successfully");
-  //   this.ProductForm.reset();
-  //   location.reload();
-  //   this.router.navigate(['/admin']);
-  
-  // }
   EditProduct(){
     
     this.shared.UpdateProduct(this.ProductForm.value).subscribe((result)=>{
