@@ -67,18 +67,15 @@ export class SignUpComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.SignUpform.invalid) {
-      
       return;
   }
   this.shared.addUserDetails(this.SignUpform.value).subscribe((result)=>{
   
 });
 this.shared.EmailService(this.SignUpform.value.FirstName,this.SignUpform.value.EmailId).subscribe((res)=>{ })
-console.log(this.SignUpform.value.EmailId);  
-alert("Sign Up Successful");
+ alert("Sign Up Successful");
   this.SignUpform.reset();
   this.router.navigate(['login']);
 }
-  
 
 }

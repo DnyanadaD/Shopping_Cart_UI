@@ -7,11 +7,21 @@
         </div>
         <div class="collapse navbar-collapse navbar-right justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav text-light">
-                <a style="margin-right:20px" routerLink="/login">
-                     Login </a>
-                <a routerLink="/cart">
-                    Cart</a>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a style="margin-right:20px" routerLink="/login">
+                            <mat-icon>account_circle</mat-icon>Login </a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/cart">
+                            <mat-icon>shopping_cart</mat-icon>Cart</a>
+                    </li>
+                    <li class="nav-item">
 
+                        <a (click)="onLogout()">&nbsp;&nbsp;&nbsp;
+                            <mat-icon>power_settings_new</mat-icon>LogOut</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
